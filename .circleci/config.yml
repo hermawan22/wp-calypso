@@ -21,7 +21,7 @@ jobs:
       - restore_cache:
           key: v2-{{ .Branch }}-{{ checksum "npm-shrinkwrap.json" }}
 
-      - run: npm install -g npm@6.0.1
+      - run: sudo npm install -g npm@6.0.1
 
       - run: npm install
 
