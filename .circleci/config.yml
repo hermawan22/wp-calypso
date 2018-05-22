@@ -10,6 +10,10 @@ jobs:
           CIRCLE_TEST_REPORTS: /tmp/test_results
 
     steps:
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@6.0.1'
+
       - checkout
 
       - run:
@@ -20,8 +24,6 @@ jobs:
 
       - restore_cache:
           key: v2-{{ .Branch }}-{{ checksum "npm-shrinkwrap.json" }}
-
-      - run: sudo npm install -g npm@6.0.1
 
       - run: npm install
 
